@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Werk – Eva Schönfeld</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: white;
+            color: black;
+        }
+        header {
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .name {
+            font-size: 24px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+        }
+        .nav-rechts {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .social {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .social a {
+            color: black;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .social a:hover {
+            opacity: 0.6;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: black;
+        }
+        .nav-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px 20px 30px 20px;
+            background: white;
+        }
+        .nav-mobile a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+        .nav-mobile .social-mobile {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .nav-mobile .social-mobile a {
+            font-size: 22px;
+        }
+        .nav-mobile.offen {
+            display: flex;
+        }
+        .detail {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 50px 80px 50px;
+        }
+        .detail img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .detail .text {
+            margin-top: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .detail .text h2 {
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .detail .text .info {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .zurueck {
+            display: inline-block;
+            margin-top: 50px;
+            text-decoration: none;
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #666;
+            padding-bottom: 2px;
+        }
+        @media (max-width: 600px) {
+            header { padding: 15px 20px; }
+            nav { display: none; }
+            .social { display: none; }
+            .hamburger { display: flex; }
+            .detail { padding: 20px 20px 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="name" href="index.html">Eva Schönfeld</a>
+        <div class="nav-rechts">
+            <nav>
+                <a href="artworks.html">artworks</a>
+                <a href="info.html">info</a>
+                <a href="contact.html">contact</a>
+                <a href="photo.html">photo</a>
+            </nav>
+            <div class="social">
+                <a href="https://www.instagram.com/evillu_s/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/eviskunst" target="_blank"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+    <div class="nav-mobile" id="navMobile">
+        <a href="artworks.html">artworks</a>
+        <a href="info.html">info</a>
+        <a href="contact.html">contact</a>
+        <a href="photo.html">photo</a>
+        <div class="social-mobile">
+            <a href="https://www.instagram.com/evillu_s/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/eviskunst" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+    </div>
+
+    <div class="detail">
+        <img src="bilderartworks/werk15_EvaSchoenfeld.jpg" alt="Titel des Werks">
+        <div class="text">
+            <h2>Ils ont partagé le monde, plus rien ne m‘étonne</h2>
+            <p class="info"> (dt. Übersetzung: Sie haben die Welt unter sich aufgeteilt, mich überrascht nichts mehr)
+                <br><br>
+                30 x 40 cm <br>
+                acrylic, watercolour on paper  <br>
+                2016
+                <br></p>
+            <p style="color: #999;"></p> 
+            <p><br>Ils ont partagé le monde, / Sie haben die Welt unter sich aufgeteilt, <br>
+plus rien ne m‘étonne ! / nichts überrascht mich mehr! <br>
+Si tu m‘aides à bombarder l‘Irak / Wenn du mir hilfst, den Irak zu bombardieren, <br>
+Moi je t‘arrange le Kurdistan. / mach‘ ich dir Kurdistan klar. <br>
+Si tu me laisse tes gisements, / Wenn du mir deine Ölfelder überlässt, <br>
+Moi je t‘aides à chasser les Talibans / helfe ich dir, die Taliban zu vertreiben.<br>
+Si tu me donnes beaucoup de blé, / Wenn du mir viel Geld gibst, <br>
+Moi je fais la guerre à tes côtés / führe ich an deiner Seite Krieg. <br>
+Si tu me laisses extraire ton or, / Wenn du mich dein Gold abbauen lässt, <br>
+Moi je t‘aides à mettre le général dehors. / helfe ich dir, den General zu vertreiben. <br>
+Ils ont partagé Africa, sans nous consulter / Sie haben Afrika unter sich aufgeteilt, ohne uns zu fragen,<br>
+Il s‘étonnent que nous soyons désunis. / und wundern sich, dass wir uns uneinig sind.<br>
+Une partie de l‘empire Mandingue / Ein Teil des Mandingo-Reiches <br>
+Se trouva chez les Wollofs. / befand sich bei den Wollofs.<br>
+Une partie de l‘empire Mossi, / Ein Teil des Mossi-Reiches <br>
+Se trouva dans le Ghana. / befand sich in Ghana. <br>
+Une partie de l‘empire Soussou, / Ein Teil des Soussou-Reiches <br>
+Se trouva dans l‘empire Mandingue. / befand sich im Mandingo-Reich.<br>
+Une partie de l‘empire Mandingue, / Ein Teil des Mandingo-Reiches<br>
+Se trouva chez les Mossi. / befand sich bei den Mossi. <br>
+Ils ont partagé Africa, sans nous consulter! / Sie haben Afrika aufgeteilt, ohne uns zu fragen! <br>
+Sans nous demander! / Ohne uns zu fragen! <br>
+Sans nous aviser! / Ohne uns zu benachrichtigen!<br>
+Ils ont partagé le monde, / Sie haben die Welt unter sich aufgeteilt, <br>
+plus rien ne m‘étonne! / nichts überrascht mich mehr!<br>
+ <br>     <p style="color: #999;">Auszüge des Liedtextes von Tiken Jah Fakoly, Original in frz.</p> 
+        
+                </p>
+            <br>
+            <p></p>
+        </div>
+        <a class="zurueck" href="artworks.html">← zurück</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navMobile');
+            nav.classList.toggle('offen');
+        }
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

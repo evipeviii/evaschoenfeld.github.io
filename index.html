@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eva Schönfeld</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: black;
+        }
+        .slideshow {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        .slide.aktiv {
+            opacity: 1;
+        }
+        .slide:nth-child(1) { background-image: url('bilderlandingpage/foto01_EvaSchoenfeld.jpg'); }
+        .slide:nth-child(2) { background-image: url('bilderlandingpage/foto02_EvaSchoenfeld.jpg'); }
+        .slide:nth-child(3) { background-image: url('bilderlandingpage/foto03_EvaSchoenfeld.jpg'); }
+        .slide:nth-child(4) { background-image: url('bilderlandingpage/foto04_EvaSchoenfeld.jpg'); }
+        .slide:nth-child(5) { background-image: url('bilderlandingpage/foto05_EvaSchoenfeld.jpg'); }
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            z-index: 10;
+        }
+        .overlay h1 {
+            color: white;
+            font-size: 53px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .overlay h1 {
+                font-size: 32px;
+                letter-spacing: 1px;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            nav a {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow">
+        <div class="slide aktiv"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="overlay">
+            <h1>Eva Schönfeld</h1>
+            <nav>
+                <a href="artworks.html">artworks</a>
+                <a href="info.html">info</a>
+                <a href="contact.html">contact</a>
+                <a href="photo.html">photo</a>
+            </nav>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let aktuelle = 0;
+        setInterval(() => {
+            slides[aktuelle].classList.remove('aktiv');
+            aktuelle = (aktuelle + 1) % slides.length;
+            slides[aktuelle].classList.add('aktiv');
+        }, 4000);
+
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

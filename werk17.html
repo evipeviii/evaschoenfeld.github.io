@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Werk – Eva Schönfeld</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: white;
+            color: black;
+        }
+        header {
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .name {
+            font-size: 24px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+        }
+        .nav-rechts {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .social {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .social a {
+            color: black;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .social a:hover {
+            opacity: 0.6;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: black;
+        }
+        .nav-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px 20px 30px 20px;
+            background: white;
+        }
+        .nav-mobile a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+        .nav-mobile .social-mobile {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .nav-mobile .social-mobile a {
+            font-size: 22px;
+        }
+        .nav-mobile.offen {
+            display: flex;
+        }
+        .detail {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 50px 80px 50px;
+        }
+        .detail img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .detail .text {
+            margin-top: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .detail .text h2 {
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .detail .text .info {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .zurueck {
+            display: inline-block;
+            margin-top: 50px;
+            text-decoration: none;
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #666;
+            padding-bottom: 2px;
+        }
+        @media (max-width: 600px) {
+            header { padding: 15px 20px; }
+            nav { display: none; }
+            .social { display: none; }
+            .hamburger { display: flex; }
+            .detail { padding: 20px 20px 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="name" href="index.html">Eva Schönfeld</a>
+        <div class="nav-rechts">
+            <nav>
+                <a href="artworks.html">artworks</a>
+                <a href="info.html">info</a>
+                <a href="contact.html">contact</a>
+                <a href="photo.html">photo</a>
+            </nav>
+            <div class="social">
+                <a href="https://www.instagram.com/evillu_s/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/eviskunst" target="_blank"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+    <div class="nav-mobile" id="navMobile">
+        <a href="artworks.html">artworks</a>
+        <a href="info.html">info</a>
+        <a href="contact.html">contact</a>
+        <a href="photo.html">photo</a>
+        <div class="social-mobile">
+            <a href="https://www.instagram.com/evillu_s/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/eviskunst" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+    </div>
+
+    <div class="detail">
+        <img src="bilderartworks/werk17_EvaSchoenfeld.jpg" alt="Titel des Werks">
+        <div class="text">
+            <h2>Patriarchy Depression</h2>
+            <p class="info"> 
+                <br>
+                40 x 50 cm <br>
+                acrylic, watercolour on paper  <br>
+                2018
+                <br></p>
+            <p style="color: #999;">SOLD</p> 
+            <p><br>Das patriar(s)chale System macht uns zu Verlierern. Jedes Geschlecht verliert und leidet unter diesen Strukturen.
+Für ein neues Verständnis was Männlichkeit (oder generell Geschlechter) bedeutet/n.
+Wo Sexismus und Misogynie vorherrschen, da gedeiht auch die Homophobie. Und es gedeiht ein Männerbild, dem (hoffentlich) immer weniger Männer entsprechen wollen.
+Auch wenn es wehtut gegen den Strom zu schwimmen:
+Schweigt nicht bei sexistischen Sprüchen. Akzeptiert ein Nein. Zeigt eure Tränen. Hört auf euer Bauchgefühl. Spürt das Unbehagen, wenn ihr realisiert dass ihr die Grenzen und Gefühle anderer verletzt habt. Und haltet das aus, drückt es nicht aggressiv weg, nur dann kann sich etwas ändern.
+<br><br>
+for all sensitive men<br>
+ <br>      
+        
+                </p>
+            <br>
+            <p></p>
+        </div>
+        <a class="zurueck" href="artworks.html">← zurück</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navMobile');
+            nav.classList.toggle('offen');
+        }
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>
