@@ -1,285 +1,79 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter – Eva Schönfeld</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Raleway', sans-serif;
-            background: white;
-            color: black;
-        }
-        header {
-            padding: 30px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .name {
-            font-size: 24px;
-            letter-spacing: 2px;
-            text-decoration: none;
-            color: black;
-            font-weight: 600;
-        }
-        .nav-rechts {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-        nav {
-            display: flex;
-            gap: 25px;
-        }
-        nav a {
-            text-decoration: none;
-            color: black;
-            font-size: 14px;
-            letter-spacing: 1px;
-            font-weight: 400;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .social {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        .social a {
-            color: black;
-            font-size: 18px;
-            text-decoration: none;
-        }
-        .social a:hover {
-            opacity: 0.6;
-        }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 5px;
-        }
-        .hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: black;
-        }
-        .nav-mobile {
-            display: none;
-            flex-direction: column;
-            gap: 20px;
-            padding: 20px 20px 30px 20px;
-            background: white;
-        }
-        .nav-mobile a {
-            text-decoration: none;
-            color: black;
-            font-size: 16px;
-            letter-spacing: 1px;
-            font-weight: 400;
-        }
-        .nav-mobile .social-mobile {
-            display: flex;
-            gap: 20px;
-            margin-top: 10px;
-        }
-        .nav-mobile .social-mobile a {
-            font-size: 22px;
-            color: black;
-        }
-        .nav-mobile.offen {
-            display: flex;
-        }
-
-        /* Newsletter Inhalt */
-        .inhalt {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 60px 50px 80px 50px;
-        }
-        .inhalt h1 {
-            font-size: 13px;
-            letter-spacing: 2px;
-            font-weight: 400;
-            margin-bottom: 30px;
-            text-transform: lowercase;
-            color: #666;
-        }
-
-        /* CleverReach Formular überschreiben */
-        .cr-web-wrapper {
-            background: white !important;
-        }
-        .cr-web-row {
-            background: white !important;
-            padding: 5px 0 !important;
-        }
-        .bgcolor-1 {
-            background-color: white !important;
-        }
-        .bgcolor-2 {
-            background-color: white !important;
-        }
-        .cr-text {
-            font-family: 'Raleway', sans-serif !important;
-            font-size: 14px !important;
-            color: black !important;
-        }
-        .cr-web-form label {
-            font-family: 'Raleway', sans-serif !important;
-            font-weight: 400 !important;
-            font-size: 13px !important;
-            letter-spacing: 1px !important;
-            color: #666 !important;
-        }
-        .cr-web-form input[type="text"],
-        .cr-web-form input[type="email"] {
-            font-family: 'Raleway', sans-serif !important;
-            font-size: 14px !important;
-            border: none !important;
-            border-bottom: 1px solid black !important;
-            border-radius: 0 !important;
-            padding: 8px 0 !important;
-            width: 100% !important;
-            outline: none !important;
-        }
-        .cr-web-form button {
-            font-family: 'Raleway', sans-serif !important;
-            font-size: 13px !important;
-            font-weight: 400 !important;
-            letter-spacing: 2px !important;
-            background: black !important;
-            color: white !important;
-            border: none !important;
-            border-radius: 0 !important;
-            padding: 12px 30px !important;
-            cursor: pointer !important;
-            margin-top: 20px !important;
-        }
-        .cr-web-form button:hover {
-            background: #333 !important;
-        }
-        .cr-consent-wrapper label {
-            font-size: 12px !important;
-            color: #999 !important;
-            font-weight: 300 !important;
-        }
-
-        @media (max-width: 600px) {
-            header { padding: 15px 20px; }
-            nav { display: none; }
-            .social { display: none; }
-            .hamburger { display: flex; }
-            .inhalt { padding: 30px 20px 60px 20px; }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <a class="name" href="index.html">Eva Schönfeld</a>
-        <div class="nav-rechts">
-            <nav>
-                <a href="artworks.html">artworks</a>
-                <a href="info.html">info</a>
-                <a href="contact.html">contact</a>
-                <a href="photo.html">photo</a>
-                <a href="newsletter.html" style="color: #999;">newsletter</a>
-            </nav>
-            <div class="social">
-                <a href="https://www.instagram.com/evillu_s/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/eviskunst" target="_blank"><i class="fab fa-telegram"></i></a>
-            </div>
+<!-- ------------ CR-Popup ------------ -->
+<style data="cr/theme">.bgcolor-1{background-color:#f1f5f7}.bgcolor-1-outlook{background-color:#f1f5f7}.color-1{color:#082137}.bgcolor-2{background-color:#fff}.bgcolor-2-outlook{background-color:#fff}.color-2{color:#082137}.aux-color-1{color:#00282e}.aux-bgcolor-1{background-color:#00282e}.aux-color-2{color:#15c}.aux-bgcolor-2{background-color:#15c}body{background-color:#f1f5f7}a{color:#15c}.cr-web-row{width:100%;max-width:600px}.cr-maxwidth{max-width:600px}</style><style hash="cr-text-web">.cr-text{font-family:Verdana,Geneva,sans-serif;font-size:14px}</style><style hash="cr-web-css">.cr-nope{display:none!important}.cr-web-row{box-sizing:border-box}@media only screen and (max-width:768px){.cr-web-row{width:75vw}}.cr-web-wrapper{display:flex;justify-content:center}.cr-web-row ul,.cr-web-row li{gap:4px;flex-direction:row}.cr-web-row ul{padding:0 8px;margin:0;list-style-type:none;flex-direction:column}.cr-web-row option{min-height:2em;white-space:normal}.cr-web-form{display:flex;flex-direction:column}.cr-web-form input,.cr-web-form select,.cr-web-form button{padding:8px 12px;border-radius:4px;border-style:solid;border-width:1px}.cr-web-form label,.cr-web-label{font-weight:500;padding:8px 0;font-style:normal;line-height:normal}.cr-web-form button{font-size:1em;font-weight:700;color:#fff;font-style:normal;border-style:solid;border-color:transparent;border-radius:4px;cursor:pointer}.cr-web-form label.required:after{content:' *';width:10px;height:100%;font-size:1.1em;line-height:inherit}.cr-web-label.required:after{content:' *'}.cr-web-form label.required .cred-html-wrapper,.cr-web-form label.required .cred-html{display:inline-block!important}</style><style hash="cr-consent-required">.cr-consent-required{display:block;margin-left:24px;padding:0!important}.cr-consent-required:after{content:' *'}</style><style hash="cr-consent-wrapper">.cr-consent-wrapper{display:flex;align-items:start}.cr-consent-wrapper input{display:block;width:auto}</style>
+<!-- ------------ form ------------ -->
+<form method="post" action="https://flow.cleverreach.com/fl/baa1ffee-29cc-4637-a591-b3c97dc4d669/confirm" class="" target="_blank">
+    <input type="text" tabindex="-1" autocomplete="false" style="display:none !important;" class="cr-nope" name="email_confirm">
+    
+     
+      
+    
+      
+      
+        <div class="cr-web-wrapper bgcolor-1">
+            <div class="cr-web-row bgcolor-2" style="padding:10px 20px;">
+                
+      <div class="cr-text color-2" style="">
+        
+        <div class="cr-web-form">
+          <label>Name</label>
+          <input type="text" placeholder="" name="Ungültiges Datenfeld">
         </div>
-        <button class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </header>
-    <div class="nav-mobile" id="navMobile">
-        <a href="artworks.html">artworks</a>
-        <a href="info.html">info</a>
-        <a href="contact.html">contact</a>
-        <a href="photo.html">photo</a>
-        <a href="newsletter.html" style="color: #999;">newsletter</a>
-        <div class="social-mobile">
-            <a href="https://www.instagram.com/evillu_s/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://t.me/eviskunst" target="_blank"><i class="fab fa-telegram"></i></a>
+        
+      </div>
+      
+            </div>
+          </div>
+    
+       
+    <div class="cr-web-wrapper bgcolor-1">
+      <div class="cr-web-row bgcolor-2" style="padding:10px 20px;">
+        <div class="cr-text color-2" style="">
+          <div class="cr-web-form">
+            <label class="required">E-Mail</label>
+            <input type="email" placeholder="" name="email" required="">
+          </div>
         </div>
+      </div>
     </div>
-
-    <div class="inhalt">
-        <h1>newsletter</h1>
-        <!-- ------------ CR-Popup ------------ -->
-        <style data="cr/theme">.bgcolor-1{background-color:#f1f5f7}.bgcolor-1-outlook{background-color:#f1f5f7}.color-1{color:#082137}.bgcolor-2{background-color:#fff}.bgcolor-2-outlook{background-color:#fff}.color-2{color:#082137}.aux-color-1{color:#00282e}.aux-bgcolor-1{background-color:#00282e}.aux-color-2{color:#15c}.aux-bgcolor-2{background-color:#15c}body{background-color:#f1f5f7}a{color:#15c}.cr-web-row{width:100%;max-width:600px}.cr-maxwidth{max-width:600px}</style><style hash="cr-text-web">.cr-text{font-family:Verdana,Geneva,sans-serif;font-size:14px}</style><style hash="cr-web-css">.cr-nope{display:none!important}.cr-web-row{box-sizing:border-box}@media only screen and (max-width:768px){.cr-web-row{width:75vw}}.cr-web-wrapper{display:flex;justify-content:center}.cr-web-row ul,.cr-web-row li{gap:4px;flex-direction:row}.cr-web-row ul{padding:0 8px;margin:0;list-style-type:none;flex-direction:column}.cr-web-row option{min-height:2em;white-space:normal}.cr-web-form{display:flex;flex-direction:column}.cr-web-form input,.cr-web-form select,.cr-web-form button{padding:8px 12px;border-radius:4px;border-style:solid;border-width:1px}.cr-web-form label,.cr-web-label{font-weight:500;padding:8px 0;font-style:normal;line-height:normal}.cr-web-form button{font-size:1em;font-weight:700;color:#fff;font-style:normal;border-style:solid;border-color:transparent;border-radius:4px;cursor:pointer}.cr-web-form label.required:after{content:' *';width:10px;height:100%;font-size:1.1em;line-height:inherit}.cr-web-label.required:after{content:' *'}.cr-web-form label.required .cred-html-wrapper,.cr-web-form label.required .cred-html{display:inline-block!important}</style><style hash="cr-consent-required">.cr-consent-required{display:block;margin-left:24px;padding:0!important}.cr-consent-required:after{content:' *'}</style><style hash="cr-consent-wrapper">.cr-consent-wrapper{display:flex;align-items:start}.cr-consent-wrapper input{display:block;width:auto}</style>
-        <form method="post" action="https://flow.cleverreach.com/fl/baa1ffee-29cc-4637-a591-b3c97dc4d669/confirm" class="" target="_blank">
-            <input type="text" tabindex="-1" autocomplete="false" style="display:none !important;" class="cr-nope" name="email_confirm">
-            <div class="cr-web-wrapper bgcolor-1">
-                <div class="cr-web-row bgcolor-2" style="padding:10px 20px;">
-                    <div class="cr-text color-2" style="">
-                        <div class="cr-web-form">
-                            <label>Name</label>
-                            <input type="text" placeholder="" name="Ungültiges Datenfeld">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cr-web-wrapper bgcolor-1">
-                <div class="cr-web-row bgcolor-2" style="padding:10px 20px;">
-                    <div class="cr-text color-2" style="">
-                        <div class="cr-web-form">
-                            <label class="required">E-Mail</label>
-                            <input type="email" placeholder="" name="email" required="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cr-web-wrapper bgcolor-1">
-                <div class="cr-web-row bgcolor-2" style="padding:10px 20px;">
-                    <div class="cr-text color-2" style="">
-                        <div class="cr-web-form">
-                            <div>
-                                <div class="cr-consent-wrapper">
-                                    <input type="checkbox" name="tags[]" value="accept" required="">
-                                    <label class="cr-consent-required">Erhalte Einladungen zu Ausstellungen, Vernissagen und Neuigkeiten aus meinem Atelier.</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cr-web-wrapper bgcolor-1">
-                <div class="cr-web-row bgcolor-2" style="padding:10px 20px;">
-                    <div class="cr-web-form">
-                        <button type="submit" class="aux-color-1 aux-bgcolor-1 cr-text">Anmelden</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <script>document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll('input[type="checkbox"][required]').forEach(e=>{e.addEventListener("change",()=>{let t=e.closest("ul"),n=t.querySelectorAll('input[type="checkbox"]:checked').length;t.querySelectorAll('input[type="checkbox"]').forEach(e=>{n>0?e.removeAttribute("required"):e.setAttribute("required","required")})})})})</script>
+     
+    
+        
+        
+    
+    
+        <div class="cr-web-wrapper bgcolor-1">
+            <div class="cr-web-row bgcolor-2" style="padding:10px 20px;">
+                
+    <div class="cr-text color-2" style="">
+      
+      <div class="cr-web-form">
+        <div>
+          <div class="cr-consent-wrapper">
+            <input type="checkbox" name="tags[]" value="accept" required="">
+            <label class="cr-consent-required">Erhalte Einladungen zu Ausstellungen, Vernissagen und Neuigkeiten aus meinem Atelier.</label>
+          </div>
+        </div>
+      </div>
+      
     </div>
-
-    <script>
-        function toggleMenu() {
-            const nav = document.getElementById('navMobile');
-            nav.classList.toggle('offen');
-        }
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-    </script>
-</body>
-</html>
+    
+            </div>
+          </div>
+    
+  
+    
+    <div class="cr-web-wrapper bgcolor-1">
+      <div class="cr-web-row bgcolor-2" style="padding:10px 20px;">
+        
+        <div class="cr-web-form">
+          <button type="submit" class="aux-color-1 aux-bgcolor-1 cr-text">Anmelden</button>
+        </div>
+        
+      </div>
+    </div>
+    
+    
+  </form>
+<!-- ------------ javascript ------------ -->
+<script>document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll('input[type="checkbox"][required]').forEach(e=>{e.addEventListener("change",()=>{let t=e.closest("ul"),n=t.querySelectorAll('input[type="checkbox"]:checked').length;t.querySelectorAll('input[type="checkbox"]').forEach(e=>{n>0?e.removeAttribute("required"):e.setAttribute("required","required")})})})})</script>
+<!-- ------------ /CR-Popup ------------ -->
