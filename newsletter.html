@@ -109,8 +109,6 @@
             margin: 0 auto;
             padding: 60px 50px 80px 50px;
         }
-
-        /* Brevo Formular anpassen */
         .sib-form {
             background-color: white !important;
         }
@@ -118,15 +116,11 @@
             border: none !important;
             background-color: white !important;
         }
-        .sib-form-block p {
-            font-family: 'Raleway', sans-serif !important;
-        }
         .sib-form-block__button {
             font-family: 'Raleway', sans-serif !important;
             letter-spacing: 2px !important;
             border-radius: 0 !important;
         }
-
         @media (max-width: 600px) {
             header { padding: 15px 20px; }
             nav { display: none; }
@@ -172,16 +166,6 @@
 
     <div class="inhalt">
         <style>
-            @font-face {
-                font-display: block;
-                font-family: Roboto;
-                src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
-            }
-            #sib-container input:-ms-input-placeholder {
-                font-family: Trebuchet MS, sans-serif;
-                text-align: left;
-                color: #c0ccda;
-            }
             #sib-container input::placeholder {
                 font-family: Trebuchet MS, sans-serif;
                 text-align: left;
@@ -232,7 +216,7 @@
                             </div>
                         </div>
                         <div style="padding: 8px 0;">
-                            <div class="g-recaptcha-v3" data-sitekey="6Lfd_RgtAAAAAIHgXX3Dw0Pr9s60PUQma8QjmefH" style="display: none"></div>
+                            <div class="g-recaptcha" data-sitekey="6LdHDRktAAAAAP4-2shYLPZMLO5J5Igjdz4Lc64E" data-callback="invisibleCaptchaCallback" data-size="invisible" onclick="executeCaptcha"></div>
                         </div>
                         <div style="padding: 8px 0;">
                             <div class="sib-form-block" style="text-align: left">
@@ -266,6 +250,6 @@
         });
     </script>
     <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lfd_RgtAAAAAIHgXX3Dw0Pr9s60PUQma8QjmefH&hl=de" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?hl=de"></script>
 </body>
 </html>
