@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GRTVWDVX88"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-GRTVWDVX88');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact – Eva Schönfeld</title>
@@ -122,7 +114,7 @@
             gap: 60px;
         }
         .abschnitt {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         .abschnitt h2 {
             font-size: 11px;
@@ -137,14 +129,84 @@
             font-weight: 300;
             line-height: 2;
         }
-        .abschnitt a {
+        .newsletter-link {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 2px;
             color: black;
             text-decoration: none;
-            border-bottom: 1px solid black;
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
         }
-        .abschnitt a:hover {
+        .newsletter-link:hover {
             opacity: 0.6;
         }
+
+        /* Formular */
+        .kontaktformular h2 {
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 400;
+            text-transform: lowercase;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .kontaktformular input,
+        .kontaktformular textarea {
+            width: 100%;
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            padding: 8px 0;
+            margin-bottom: 25px;
+            outline: none;
+            background: transparent;
+        }
+        .kontaktformular textarea {
+            height: 120px;
+            resize: none;
+        }
+        .kontaktformular button {
+            font-family: 'Raleway', sans-serif;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            background: transparent;
+            color: black;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+        .kontaktformular button:hover {
+            opacity: 0.6;
+        }
+
+        /* Fade */
+        .kontaktformular form {
+            transition: opacity 0.4s ease;
+        }
+        .kontaktformular form.ausblenden {
+            opacity: 0;
+        }
+        .erfolgsmeldung {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 2;
+            color: black;
+        }
+        .erfolgsmeldung.einblenden {
+            display: block;
+            opacity: 1;
+        }
+
         @media (max-width: 600px) {
             header { padding: 15px 20px; }
             nav { display: none; }
@@ -198,18 +260,28 @@
                 <div class="abschnitt">
                     <h2>atelier</h2>
                     <p>
+                        Eva Schönfeld<br>
                         Binzstraße 58<br>
-                        13189 Berlin<br>
-                        nähe S/U-Bhf Berlin Pankow
+                        13189 Berlin
                     </p>
+                </div>
+                <div class="abschnitt">
+                    <h2>newsletter</h2>
+                    <a href="newsletter.html" class="newsletter-link">newsletter abonnieren →</a>
                 </div>
             </div>
             <div class="rechts">
-                <div class="abschnitt">
-                    <h2>email</h2>
-                    <p>
-                        <a href="mailto:eva.j.schoenfeld@gmail.com">eva.j.schoenfeld@gmail.com</a>
-                    </p>
+                <div class="kontaktformular">
+                    <h2>nachricht schreiben</h2>
+                    <form id="kontaktform" action="https://formspree.io/f/mrevyrkl" method="POST">
+                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="email" name="email" placeholder="E-Mail" required>
+                        <textarea name="nachricht" placeholder="Nachricht" required></textarea>
+                        <button type="submit">senden →</button>
+                    </form>
+                    <div class="erfolgsmeldung" id="erfolgsmeldung">
+                        Danke für die Nachricht und Ihr Interesse.
+                    </div>
                 </div>
             </div>
         </div>
@@ -220,8 +292,32 @@
             const nav = document.getElementById('navMobile');
             nav.classList.toggle('offen');
         }
+
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
+        });
+
+        const form = document.getElementById('kontaktform');
+        const erfolgsmeldung = document.getElementById('erfolgsmeldung');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const data = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                form.classList.add('ausblenden');
+                setTimeout(() => {
+                    form.style.display = 'none';
+                    erfolgsmeldung.style.display = 'block';
+                    setTimeout(() => {
+                        erfolgsmeldung.classList.add('einblenden');
+                    }, 10);
+                }, 400);
+            }
         });
     </script>
 </body>
