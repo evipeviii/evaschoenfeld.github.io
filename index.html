@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GRTVWDVX88"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-GRTVWDVX88');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eva Schönfeld</title>
@@ -98,6 +90,50 @@
                 font-size: 16px;
             }
         }
+
+        /* Vernissage Popup */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup-box {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+        }
+        .popup-box img {
+            display: block;
+            max-width: 100%;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            border-radius: 4px;
+        }
+        .popup-close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            font-size: 1.3rem;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+        .popup-hidden {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -118,6 +154,14 @@
         </div>
     </div>
 
+    <!-- Vernissage Popup -->
+    <div id="vernissage-popup" class="popup-overlay">
+        <div class="popup-box">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <img src="bilderlandingpage/vernissage-plakat.jpg" alt="Plakat Vernissage: The Future is Female">
+        </div>
+    </div>
+
     <script>
         const slides = document.querySelectorAll('.slide');
         let aktuelle = 0;
@@ -129,6 +173,19 @@
 
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
+        });
+
+        function closePopup() {
+            document.getElementById('vernissage-popup').classList.add('popup-hidden');
+            localStorage.setItem('vernissagePopupClosed', Date.now());
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const closedAt = localStorage.getItem('vernissagePopupClosed');
+            const sevenDays = 7 * 24 * 60 * 60 * 1000;
+            if (closedAt && (Date.now() - closedAt < sevenDays)) {
+                document.getElementById('vernissage-popup').classList.add('popup-hidden');
+            }
         });
     </script>
 </body>
